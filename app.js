@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
-const mustacheExpress = require('mustache-express');
 const bodyParser = require("body-parser");
+const multer = require('multer');
+const mustacheExpress = require('mustache-express');
+const upload = multer({dest: 'uploads/'});
+const fs = require('fs');
+const formatter = require("./formatter.js");
 const session = require('express-session');
 const flash = require('connect-flash');
 
@@ -22,7 +26,7 @@ app.use(session({
 app.use(flash());
 
 app.listen(3000, function () {
-  console.log('Auth Demo App Online!');
+  console.log('He say "You Blade Runner".');
 });
 
 app.use(function(err, req, res, next){

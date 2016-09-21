@@ -15,11 +15,16 @@
             <h4>Welcome {{email}}!</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam tellus vitae nulla tristique, quis laoreet nulla fringilla.</p>
           </div>
-          <blockquote class="blockquote-reverse">
-            <p>"If debugging is the process of removing software bugs,
-            then programming must be the process of putting them in."</p>
-            <small>Edsger Dijkstra</cite></small>
-          </blockquote>
+          <p>Okely dokely!</p>
+          <br>
+          <form ref='uploadForm'
+                id='uploadForm'
+                action='/uploads'
+                method='post'
+                encType="multipart/form-data">
+                <input type="file" name="upl" />
+                <input type='submit' value='Upload!' />
+              </form>
           <a href="/sessions/logout">Logout</a>
         </div>
       </div>
