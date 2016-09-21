@@ -1,5 +1,5 @@
 const pgp = require('pg-promise')();
-const db = pgp('postgres://xxxxxxx@localhost:5432/auth');
+const db = pgp('postgres://dasboogaloo@localhost:5432/line_runner_db');
 
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSalt(10);
@@ -59,4 +59,14 @@ var create_user = function(req, res, next){
   });
 };
 
-module.exports = { login, logout, create_user };
+var save_lines = function(arr, user, project){
+  var user_email = user;
+  var project = project;
+  for (var i = 0; i < arr.length; i ++){
+    var line = arr[i]
+    db.none(
+      "INSERT INTO scripts(user_email, project, script_line) VALUES($1, $2, $3)",[user_email, project, line]
+    )
+  }
+}
+module.exports = { login, logout, create_user, save_lines};

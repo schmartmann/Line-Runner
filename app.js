@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
-const multer = require('multer');
 const mustacheExpress = require('mustache-express');
-const upload = multer({dest: 'uploads/'});
 const fs = require('fs');
 const formatter = require("./formatter.js");
 const session = require('express-session');
