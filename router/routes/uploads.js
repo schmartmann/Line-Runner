@@ -15,7 +15,8 @@ router.post('/', multer({ dest: '../../uploads/'}).single('upl'), function(req,r
     if (err) {
       res.send(err)
     } else {
-      formatter.lineBreakFormat(data);
+      var scriptArr = data.split("\n")
+      db.save_lines(scriptArr)
     }
   })
 });
