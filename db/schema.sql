@@ -9,7 +9,7 @@ CREATE TABLE users (
 
 CREATE TABLE scripts (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id),
+  user_email VARCHAR(255) REFERENCES users(email) ON DELETE CASCADE,
   project VARCHAR(255),
   script_line VARCHAR(255)
 )

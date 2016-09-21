@@ -1,0 +1,37 @@
+Var Pokemon = [];
+
+Var pikachuHealth = 100;
+
+Var enemyName = '';
+
+Var enemyHealth = 1;
+
+$status = $('#status_field')
+
+function getEnemy () {
+Var randNum = Math.floor(Math.random() * Pokemon.length);
+Var enemy = pokemon[randNum];
+EnemyName = enemy[0];
+enemyHealth = enemy[2];
+$('#enemy_img').attr('src', enemy[1]);
+Return enemy;
+}
+
+Var enemy = getEnemy();
+
+function doHeal () {
+pikachuHealth = 100 ? $staus_field.text('Pikachu is already at 100 health!) : heal() 
+Function heal() {
+Var heal = Math.floor(Math.random() * (max-min+1)+max);
+
+pikachuHealth += heal;
+
+$status_field.html("You healed for 
+" + heal +" points! <br> Enemy will attack in 3 seconds!";)
+}
+setTimeout(enemyAttack(), 3000);
+}
+
+
+
+

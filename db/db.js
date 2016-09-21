@@ -59,13 +59,14 @@ var create_user = function(req, res, next){
   });
 };
 
-var save_lines = function(arr){
+var save_lines = function(arr, user, project){
+  var user_email = user;
+  var project = project;
   for (var i = 0; i < arr.length; i ++){
     var line = arr[i]
     db.none(
-      "INSERT INTO scripts(user_id, project, script_line) VALUES(1,'Test', $1)",[line]
+      "INSERT INTO scripts(user_email, project, script_line) VALUES($1, $2, $3)",[user_email, project, line]
     )
   }
 }
-
 module.exports = { login, logout, create_user, save_lines};

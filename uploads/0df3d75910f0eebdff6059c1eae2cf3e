@@ -1,0 +1,43 @@
+day nine: 
+
+# Slips: 
+
+1. truthey v. falsey: genres of outcomes from evaluating a boolean statement. 
+falsey : false, null, undefined, NaN, 0, “ “, 
+! = no
+|| = or
+&& = and
+
+
+3. Why do we write functions? (What problems do functions solve?). Show us some syntax for a function - write out a function that will take an input number and double it and another function that will take an input string and log ‘true’ if the string is at most ten characters in length
+
+- A reusable piece of code that processes data, takes multiple inputs, and is a short-cut (keeps you from having to retype the same code over and over)
+
+function doublerInt(num) {
+return num * 2;
+}
+
+var doublerInt = function (num) {
+return num * 2;
+}
+
+function strLen (str) {
+if (str.length <== 10) {
+return true}
+else {
+return false
+}
+}
+
+// using ternary evaluation 
+function strLen (str) {
+if (str.length <== 10) ? true : false;
+};
+
+
+
+# PSEUDO CODE
+takes away the baggage of syntax and details and allows us to focus on the actual logic of the code. 
+
+it’s a human-language expression of your code. 
+

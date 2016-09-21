@@ -1,0 +1,35 @@
+# BOX MODE
+
+[CONTENT]
+	|
+PADDING (immediately outside of the content of an element)
+	|
+BORDER (the content’s external limit; size, color, and style can all be modified)
+	|
+MARGIN (how much separation there is between different elements on the page)
+	|
+
+Boilerplates can be very useful time-saving tools. 
+getskeleton.com (lightweight, good for proof of concept, rather than for production) 
+bootstrap.com (gazillions of features, old, heavy, but many resources online vis-a-vis documentation, how to get started, etc.)
+muicss.com 
+
+# JQUERY
+
+- jQuery is a Javascript library
+- makes it easier to use Javascript
+- most popular Javascript library. 
+- four main parts: 
+1. DOM nav / manipulations
+2. Animations
+3. Event Handling
+4. AJAX (will discuss later) 
+- How do we “use” jQuery? Include in HTML like vanilla JS files. 
+- JS file contains all the functions that are predefined for you. You access them with the jQuery operator. 
+- two ways to link file to HTML: 
+1. locally: <scrip src=‘jQuery.’></script>
+2. externally: CDN address of jQuery library
+- jQuery **operator** = $
+- jQuery operator = $.method. 
+- 2 ways to use it:  $() and $.something. 
+- $() is a function into which you pass selectors, as strings, as arguments. You will be returned a jQuery object. This object is *similar* to a NodeList. 

@@ -1,0 +1,43 @@
+method vs function
+
+functions are defined by us
+
+methods are defined by javascript or jQuery
+
+example of method action: 
+
+to look at how something like .forEach() works, we can actually construct our own version of it. Here, we’ll call it .forEacher.
+
+Array.forEacher:
+
+Array.prototype.forEacher = function(cb) {
+var ourArr = this; 
+for(var i = 0; i < ourArr.length; i ++ {
+cb(ourArr[i]);
+}
+};
+
+function(cb) {
+var ourArr = this; 
+for(var i = 0; i < ourArr.length; i ++ {
+cb(ourArr[i]);
+}
+}
+
+var t = [“hello”, “world”, 12456]
+var func = function(el){ console.log(“Your text: “ + el)}
+t.forEacher(func);
+
+Console will log: 
+YOUR TEXT: hello
+YOUR TEXT: goodbye
+YOUR TEXT: 12456
+
+
+
+setTimeout: sets a timer to execute a function 1x after a delay (in milliseconds) 
+setInterval: executes a function 1x after each interval (in a potentially infinite loop). 
+
+
+# CSS Animations
+
