@@ -8,12 +8,9 @@ router.get('/new', function (req, res) {
 });
 
 router.post('/create', db.create_user, function (req, res) {
-  if(res.error){
-    req.flash('error', res.error);
-    res.redirect('new');
-  } else {
-    res.redirect('/');
-  }
+  if(res.error)
+    var errorMsg = "error!"
+    res.send(errorMsg)
 });
 
 module.exports = router;

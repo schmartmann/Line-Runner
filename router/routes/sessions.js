@@ -11,8 +11,6 @@ router.post('/create', db.login, function(req, res){
   if(res.error)
     var errorMsg = "error!"
     res.send(errorMsg)
-  // res.flash('error', res.error);
-  // res.redirect('/');
 });
 
 router.get('/logout', db.logout, function(req, res){

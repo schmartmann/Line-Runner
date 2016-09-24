@@ -21,8 +21,7 @@ var login = function(req, res, next){
       user.password_digest,
       function(err, cmp){
         if(cmp){
-          var response = {email: email}
-          console.log(response)
+          var response = {email: user.email}
           res.send(response)
           next();
         } else {
@@ -40,6 +39,8 @@ var logout = function(req, res, next){
 };
 
 var create_user = function(req, res, next){
+  console.log(req.body)
+  debugger
   var email = req.body.email;
   var password = req.body.password;
 
@@ -51,9 +52,9 @@ var create_user = function(req, res, next){
       res.error = 'Error. User could not be created.';
       next();
     }).then(function(user){
-      req.session.user = {
-        'email': email
-      };
+      console.log("This email address was created" + email)
+      var response = {email: email}
+      res.send(response)
       next();
     });
   });
