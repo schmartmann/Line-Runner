@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mustacheExpress = require('mustache-express');
 const fs = require('fs');
+const cors = require('cors')
 const formatter = require("./formatter.js");
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -20,6 +21,18 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }));
+
+var whitelist = [
+    'http://localhost:3000',
+];
+var corsOptions = {
+    origin: function(origin, callback){
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+app.use(cors(corsOptions));
 
 app.use(flash());
 

@@ -21,9 +21,9 @@ var login = function(req, res, next){
       user.password_digest,
       function(err, cmp){
         if(cmp){
-          req.session.user = {
-            'email': user.email
-          };
+          var response = {email: email}
+          console.log(response)
+          res.send(response)
           next();
         } else {
           res.error = auth_error;
