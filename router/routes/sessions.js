@@ -8,9 +8,11 @@ router.get('/new', function(req, res){
 });
 
 router.post('/create', db.login, function(req, res){
+  console.log(req.body)
   if(res.error)
     var errorMsg = "error!"
     res.send(errorMsg)
+    // res.redirect('/');
 });
 
 router.get('/logout', db.logout, function(req, res){
