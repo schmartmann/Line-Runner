@@ -7,11 +7,12 @@ const fs = require('fs');
 const db = require('../../db/db');
 
 router.post('/', multer({ dest: './uploads/'}).single('upl'), function(req,res){
-  if(!req.session.user){
-    res.redirect('sessions/new');
+  if(!req.body.user_email){
+    res.send('Sorry, you need to be logged in to do that.');
   } else {
+    console.log(req.body)
   	console.log(req.file); //form files
-    var user = req.session.user.email
+    var user = req.body.user_email
     var project = req.body.project
     console.log("Current project: "+project)
     console.log("Current user: "+user)
@@ -28,5 +29,11 @@ router.post('/', multer({ dest: './uploads/'}).single('upl'), function(req,res){
     })
   }
 });
+
+router.get('/', function(req, res){
+  var data = req.url
+  var email = data.replace(/\W{2}/, "")
+  db.fetch_lines(email);
+})
 
 module.exports = router;

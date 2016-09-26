@@ -21,7 +21,6 @@ var login = function(req, res, next){
       user.password_digest,
       function(err, cmp){
         if(cmp){
-          // req.session.user = user.email
           var response = {email: user.email}
           res.send(response)
           next();
@@ -41,7 +40,6 @@ var logout = function(req, res, next){
 
 var create_user = function(req, res, next){
   console.log(req.body)
-  debugger
   var email = req.body.email;
   var password = req.body.password;
 
@@ -61,6 +59,7 @@ var create_user = function(req, res, next){
   });
 };
 
+
 var save_lines = function(arr, user, project){
   var user_email = user;
   var project = project;
@@ -71,4 +70,21 @@ var save_lines = function(arr, user, project){
     )
   }
 }
-module.exports = { login, logout, create_user, save_lines};
+
+var fetch_lines = function(email, next){
+  var email = email;
+  var script=[];
+  var project_error = "No projects found for that email";
+  db.any(
+    "SELECT * FROM scripts WHERE user_email=$1", [email]
+  ).catch(function(){
+    res.send(project_error);
+  }).then(function(lines){
+    script.push(lines)
+    console.log(script)
+    res.send(script)
+    next();
+  })
+}
+
+module.exports = { login, logout, create_user, save_lines, fetch_lines};
