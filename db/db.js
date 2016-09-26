@@ -71,8 +71,10 @@ var save_lines = function(arr, user, project){
   }
 }
 
-var fetch_lines = function(email, next){
-  var email = email;
+var fetch_lines = function(req, res, next){
+  var data = req.url
+  var email = data.replace(/\W{2}/, "")
+
   var script=[];
   var project_error = "No projects found for that email";
   db.any(

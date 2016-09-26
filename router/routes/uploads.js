@@ -30,10 +30,11 @@ router.post('/', multer({ dest: './uploads/'}).single('upl'), function(req,res){
   }
 });
 
-router.get('/', function(req, res){
-  var data = req.url
-  var email = data.replace(/\W{2}/, "")
-  db.fetch_lines(email);
+router.get('/', db.fetch_lines, function(req, res, next){
+  if  (res.error) {
+    var errorMsg = "error!"
+    res.send(errorMsg)
+  }
 })
 
 module.exports = router;
